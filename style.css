@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(40deg, black 40%, red 80%);
+    height: 100vh;
+    margin: 0;
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header img {
+    height: 60px;
+    transform: scale(0.9);
+    filter: saturate(4);
+    transition: filter 0.9s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.header img:hover {
+    filter: saturate(5);
+    transform: scale(1);
+}
+
+.navbar a {
+    text-decoration: none;
+    border-bottom: 2px dashed white;
+    color: white;
+    margin-left: 35px;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.navbar a::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid red;
+    position: absolute;
+    left: 0;
+    top: -100%;
+    transition: 0.1s ease;
+    opacity: 0;
+    z-index: -1;
+}
+
+.navbar a:hover::before {
+    top: 0;
+    opacity: 1;
+}
+
+@keyframes BakuPopover {
+    0%{
+        transform: scale(0);
+
+    }
+}
+
+.buttonImage-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    top: 50%;
+    animation: 0.6s forwards;
+    border:none;
+    cursor: pointer;
+    float:left;
+    animation: BakuPopover is ease forwards;
+
+}
+
+.buttonImage-1 :hover{
+    opacity:0.9;
+    animation: BakuPopover is ease forwards;
+}
+
+.welcome-text {
+    color: whitesmoke;
+    max-width: 500px;
+    margin:left;
+    padding: 5rem 20;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     
+}
+
+.welcome-text h2 {
+    text-transform: uppercase;
+    font-size: 60px;
+    font-weight: 550;
+    text-align: center;
+}
+
+.welcome-text span{
+    font-size: 25px;
+    color: red;
+}
+
+.welcome-text p {
+    font-size: 15px;
+}
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+    }
+    50% {
+        transform: translateY(-10px);
+        filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+    }
+    100% {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+    }
+}
+
+.Image-1 img:nth-child(1),
+.Image-1 img:nth-child(2) {
+    height: 350px;
+    transition: 0.5s ease;
+    display: flex;
+    float: right;
+    position: relative;
+    top: -350px;
+    transition: 0.5s ease;
+    animation: float 4s infinite ease-in-out; 
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.6)); 
+
+}
+
+/* Hover effect */
+.Image-1 img:hover {
+    transform: scale(1.1); 
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 30px rgba(255, 0, 0, 1)); 
+}
+
+
+
+section {
+    padding: 10rem 10% 2rem;
+    height: 100vh;
+    width: 100%;
+}
+.AboutPage {
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.about-text {
+    color: whitesmoke;
+    max-width: 4000px;
+    margin: 0 auto;
+    padding: 5rem 20;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+
+.watch-text {
+    color: whitesmoke;
+    max-width: 4000px;
+    margin:auto;
+    padding:5rem 20;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+.Watchpage {
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    
+    
+}
+
+.Characters{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10rem 0;
+}
+
+
+/* About Page */
+.Bakuchars {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.left {
+ table-layout: fixed;
+ height: 50px;
+ width: 50px;
+ float: left;
+ width: 20%;
+ border-radius: 10px;
+
+}
+
+.right {
+table-layout: fixed;
+height: 50px;
+width: 50px;
+float: right;
+width:20%;
+border-radius: 10px;
+}
+
+.Bakuchars::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+  
+  .left:hover.overlay {
+    bottom: 0;
+    height: 100%;
+  }
+  
+  .right:hover.overlay {
+    bottom: 0;
+    height: 100%;
+  }
+  
+  .text {
+    white-space: nowrap; 
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+ 
+
+
+
+
+.container {
+    text-align: center;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+header .logo {
+    height: 60px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+nav a:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: white;
+    bottom: -5px;
+    left: 0;
+}
+
+main .text-content {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+main .images {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+main .images .left, 
+main .images .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+main .images img {
+    width: 150px;
+    height: auto;
+    border: 2px solid white;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main .images img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+
